@@ -770,6 +770,10 @@ readxresources(void) {
 			fonts[0] = strdup(xval.addr);
 		else
 			fonts[0] = strdup(fonts[0]);
+    if (XrmGetResource(xdb, "dmenu.vertpad", "*", &type, &xval))
+			vertpadbar = atoi(strdup(xval.addr));
+    if (XrmGetResource(xdb, "dmenu.center", "*", &type, &xval))
+			centered = atoi(strdup(xval.addr));
 		if (XrmGetResource(xdb, "dmenu.background", "*", &type, &xval))
 			colors[SchemeNorm][ColBg] = strdup(xval.addr);
 		else
